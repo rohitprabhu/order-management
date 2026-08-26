@@ -100,11 +100,11 @@ GET http://localhost:8000/api/products
 ```
 ```
 List Products (pagination) - 
-GET http://localhost:8000/api/products?pageSize=5
+GET http://localhost:8000/api/products?page=1&pageSize=5
 ```
 ```
 List Products (stock filter) - 
-GET http://localhost:8000/api/products?in_stock=0
+GET http://localhost:8000/api/products?in_stock=1
 ```
 #
 
