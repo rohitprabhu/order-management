@@ -25,6 +25,8 @@ class ProductController
 
         $comparisonOperator = $inStock ? '>' : '=';
 
+        $productsCol = Product::all();
+
         $products = Product::where('stock_quantity', $comparisonOperator, 0)
                             ->paginate($pageSize)
                             ->items();
@@ -36,7 +38,9 @@ class ProductController
             );
         }
 
-        return response()->json($products);
+        return response()->json(
+            ["Total Products" => $productsCol->count(), "Limit" => $request->input('pageSize'), $products],
+        );
     }
 
     /**
